@@ -4,12 +4,13 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&display=swap">
 <style>
   :root{
-    --bg:#0B0D10;
-    --surface:#14171C;
-    --surface2:#1B1F26;
-    --line:#262B33;
-    --text:#EDEFF2;
-    --muted:#9AA1AB;
+    --bg:#23272E;
+    --surface:#2A2F37;
+    --surface2:#313740;
+    --card:#1B1F26;
+    --line:#3C434D;
+    --text:#F0F2F4;
+    --muted:#A9B0BA;
     --accent:#FFC400;
     --accent-deep:#E0A800;
     --disp:"Saira Condensed","Arial Narrow",Impact,sans-serif;
@@ -42,7 +43,7 @@
   /* ── Header ─────────────────────────────── */
   header{
     position:sticky;top:0;z-index:50;
-    background:rgba(11,13,16,.92);
+    background:rgba(27,31,38,.92);
     backdrop-filter:blur(10px);
     border-bottom:1px solid var(--line);
   }
@@ -62,14 +63,22 @@
   .nav-meta .tel{color:var(--accent);font-weight:600;letter-spacing:.03em}
   @media(max-width:820px){.nav-links,.nav-meta .site{display:none}}
 
-  /* ── Hero ───────────────────────────────── */
-  .hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
-  .hero-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center;padding-top:72px;padding-bottom:64px}
-  .hero h1{font-size:clamp(40px,6vw,68px);font-weight:700;margin:14px 0 8px}
+  /* ── Hero (slika u pozadini, tekst preko) ── */
+  .hero{
+    position:relative;overflow:hidden;border-bottom:1px solid var(--line);
+    background:#0E1116 url(__HERO__) no-repeat right center/cover;
+  }
+  .hero::before{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(100deg,rgba(11,13,16,.94) 0%,rgba(11,13,16,.82) 34%,rgba(11,13,16,.38) 62%,rgba(11,13,16,.10) 100%);
+  }
+  .hero-grid{position:relative;display:flex;align-items:center;min-height:640px;padding-top:80px;padding-bottom:80px}
+  .hero-grid>div{max-width:600px}
+  .hero h1{font-size:clamp(40px,6vw,72px);font-weight:700;margin:16px 0 8px;color:#F0F2F4;text-shadow:0 2px 24px rgba(0,0,0,.45)}
   .hero h1 em{font-style:normal;color:var(--accent)}
-  .hero .rule{width:88px;height:5px;background:var(--accent);margin:18px 0 20px}
-  .hero p{color:var(--muted);max-width:46ch;font-size:17px}
-  .cta-row{display:flex;gap:14px;margin-top:30px;flex-wrap:wrap}
+  .hero .rule{width:88px;height:5px;background:var(--accent);margin:20px 0 22px}
+  .hero p{color:#C9CED6;max-width:46ch;font-size:17.5px;text-shadow:0 1px 12px rgba(0,0,0,.5)}
+  .cta-row{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap}
   .btn{
     display:inline-flex;align-items:center;gap:10px;
     font-family:var(--disp);font-weight:600;text-transform:uppercase;letter-spacing:.14em;font-size:15px;
@@ -80,14 +89,11 @@
   .btn-solid:hover{background:var(--accent-deep)}
   .btn-ghost{background:transparent;color:var(--accent)}
   .btn-ghost:hover{background:rgba(255,196,0,.08)}
-  .hero-img{position:relative}
-  .hero-img img{border:1px solid var(--line);box-shadow:0 30px 80px rgba(0,0,0,.55)}
-  .hero-img::after{
-    content:"";position:absolute;inset:auto -14px -14px auto;width:120px;height:120px;
-    background:repeating-linear-gradient(-45deg,var(--accent) 0 10px,transparent 10px 20px);
-    opacity:.35;z-index:-1;
+  @media(max-width:900px){
+    .hero{background-position:72% center}
+    .hero::before{background:linear-gradient(180deg,rgba(11,13,16,.82) 0%,rgba(11,13,16,.72) 60%,rgba(11,13,16,.55) 100%)}
+    .hero-grid{min-height:560px;padding-top:56px;padding-bottom:56px}
   }
-  @media(max-width:900px){.hero-grid{grid-template-columns:1fr;padding-top:48px;padding-bottom:48px}}
 
   /* ── Stats ──────────────────────────────── */
   .stats{border-bottom:1px solid var(--line);background:var(--surface)}
@@ -105,24 +111,37 @@
   .sec-head h2{font-size:clamp(30px,4vw,44px);font-weight:700;margin-top:12px}
   .sec-head h2 em{font-style:normal;color:var(--accent)}
 
-  /* ── O nama ─────────────────────────────── */
-  .about-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:56px;align-items:center}
-  .about-grid img{border:1px solid var(--line);box-shadow:0 24px 60px rgba(0,0,0,.5)}
-  .about-txt h2{font-size:clamp(30px,4vw,42px);font-weight:700;margin:12px 0 20px}
+  /* ── O nama (zgrada u pozadini, tekst preko) ── */
+  #o-nama{
+    position:relative;overflow:hidden;padding:0;
+    background:#0E1116 url(__STORE__) no-repeat left 38%/cover;
+    border-bottom:1px solid var(--line);
+  }
+  #o-nama::before{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(to left,rgba(11,14,19,.94) 0%,rgba(11,14,19,.86) 42%,rgba(11,14,19,.30) 76%,rgba(11,14,19,.08) 100%);
+  }
+  .about-inner{position:relative;display:flex;justify-content:flex-end;align-items:center;min-height:640px;padding-top:84px;padding-bottom:84px}
+  .about-txt{max-width:600px}
+  .about-txt h2{font-size:clamp(30px,4vw,44px);font-weight:700;margin:12px 0 20px;text-shadow:0 2px 20px rgba(0,0,0,.5)}
   .about-txt h2 em{font-style:normal;color:var(--accent)}
-  .about-txt p{color:var(--muted);margin-bottom:14px}
+  .about-txt p{color:#C9CED6;margin-bottom:14px;text-shadow:0 1px 12px rgba(0,0,0,.5)}
   .about-txt .claim{color:var(--text);font-weight:600}
   .badges{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:28px}
-  .badge{display:flex;gap:12px;align-items:center;background:var(--surface);border:1px solid var(--line);padding:14px 16px}
+  .badge{display:flex;gap:12px;align-items:center;background:rgba(27,31,38,.72);border:1px solid rgba(120,130,145,.35);padding:14px 16px;backdrop-filter:blur(4px)}
   .badge svg{flex:none}
   .badge span{font-family:var(--disp);font-weight:600;text-transform:uppercase;letter-spacing:.1em;font-size:13.5px}
-  @media(max-width:900px){.about-grid{grid-template-columns:1fr}}
+  @media(max-width:900px){
+    #o-nama{background-position:28% center}
+    #o-nama::before{background:linear-gradient(180deg,rgba(11,14,19,.55) 0%,rgba(11,14,19,.82) 45%,rgba(11,14,19,.92) 100%)}
+    .about-inner{min-height:0;padding-top:340px;padding-bottom:56px}
+  }
 
   /* ── Kategorije ─────────────────────────── */
   #ponuda{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
   .cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
   .cat{
-    background:var(--surface2);border:1px solid var(--line);
+    background:var(--card);border:1px solid var(--line);
     padding:18px 16px 20px;display:flex;flex-direction:column;gap:12px;
     align-items:center;text-align:center;
     transition:transform .18s,border-color .18s;
@@ -142,18 +161,23 @@
   @media(max-width:960px){.cat-grid,#cats-extra{grid-template-columns:repeat(3,1fr)}}
   @media(max-width:640px){.cat-grid,#cats-extra{grid-template-columns:repeat(2,1fr)}}
 
-  /* ── Marquee proizvođača ────────────────── */
-  .brands{padding:34px 0;border-bottom:1px solid var(--line);background:var(--bg);overflow:hidden}
-  .brands .eyebrow{text-align:center;display:block;margin-bottom:22px}
+  /* ── Marquee proizvođača (svetla traka sa logotipima) ── */
+  .brands{padding:36px 0 40px;border-bottom:1px solid var(--line);background:#EDEFF2;overflow:hidden}
+  .brands .eyebrow{text-align:center;display:block;margin-bottom:26px;color:#8A5F00}
   .marquee{display:flex;overflow:hidden;user-select:none;
     -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
     mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);}
-  .marquee-track{display:flex;flex:none;align-items:center;gap:64px;padding-right:64px;animation:scroll 28s linear infinite}
+  .marquee-track{display:flex;flex:none;align-items:center;gap:72px;padding-right:72px;animation:scroll 30s linear infinite}
   .marquee:hover .marquee-track{animation-play-state:paused}
   @keyframes scroll{to{transform:translateX(-100%)}}
-  .brand{font-family:var(--disp);font-weight:700;text-transform:uppercase;font-size:26px;letter-spacing:.08em;
-    color:var(--muted);white-space:nowrap;transition:color .2s}
-  .brand:hover{color:var(--accent)}
+  .brand{display:flex;align-items:center;white-space:nowrap}
+  .brand img{height:32px;width:auto;display:block}
+  .brand.b-tall img{height:42px}
+  .wordmark{font-family:var(--disp);font-weight:700;text-transform:uppercase;font-size:24px;letter-spacing:.06em;line-height:1}
+  .wm-mann{background:#FFED00;color:#00693C;padding:5px 10px;letter-spacing:.02em}
+  .wm-febi{color:#E2001A;text-transform:lowercase;font-size:27px}
+  .wm-depo{color:#00427A;font-style:italic}
+  .wm-qwp{color:#15181C;border:3px solid #15181C;padding:3px 9px}
   @media(prefers-reduced-motion:reduce){
     .marquee-track{animation:none}
     .marquee{flex-wrap:wrap;justify-content:center;-webkit-mask-image:none;mask-image:none}
@@ -195,6 +219,17 @@
     .cinfo{border-left:none;padding-left:0;border-top:1px solid var(--line);padding-top:36px}
     form{grid-template-columns:1fr}
   }
+
+  /* ── Prava potrošača ────────────────────── */
+  #prava{background:var(--surface);border-top:1px solid var(--line)}
+  .prava-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .pravo{background:var(--surface2);border:1px solid var(--line);padding:26px 24px}
+  .pravo h3{font-size:18px;letter-spacing:.08em;margin-bottom:12px;color:var(--accent)}
+  .pravo p{font-size:14.5px;color:var(--muted);margin-bottom:10px}
+  .pravo p b{color:var(--text);font-weight:600}
+  .prava-note{margin-top:22px;font-size:13.5px;color:var(--muted);max-width:88ch}
+  .prava-note a{color:var(--accent);text-decoration:underline}
+  @media(max-width:900px){.prava-grid{grid-template-columns:1fr}}
 
   /* ── Footer ─────────────────────────────── */
   footer{border-top:1px solid var(--line);background:var(--surface)}
@@ -246,9 +281,6 @@
         <a class="btn btn-ghost" href="#kontakt">Pošalji upit</a>
       </div>
     </div>
-    <div class="hero-img rv">
-      <img src="__HERO__" alt="Auto delovi — kočioni disk sa žutim kliperom, amortizer, filter za ulje i akumulator" width="1280" height="720">
-    </div>
   </div>
 </section>
 
@@ -262,8 +294,7 @@
 </div>
 
 <section id="o-nama">
-  <div class="wrap about-grid">
-    <img class="rv" src="__STORE__" alt="DIAX Auto Delovi — maloprodajni objekat" width="1024" height="768">
+  <div class="wrap about-inner">
     <div class="about-txt rv">
       <span class="eyebrow">O nama</span>
       <h2>Kvalitet koji pokreće <em>vaše vozilo</em>.</h2>
@@ -335,10 +366,28 @@
   </div>
   <div class="marquee" aria-label="Proizvođači u ponudi">
     <div class="marquee-track">
-      <span class="brand">LUK</span><span class="brand">Sachs</span><span class="brand">Hella</span><span class="brand">Depo</span><span class="brand">QWP</span><span class="brand">Mahle</span><span class="brand">Valeo</span><span class="brand">Mann-Filter</span><span class="brand">Febi</span><span class="brand">NGK</span>
+      <span class="brand"><img src="__LOGO_luk__" alt="LuK"></span>
+      <span class="brand"><img src="__LOGO_sachs__" alt="Sachs"></span>
+      <span class="brand"><img src="__LOGO_hella__" alt="Hella"></span>
+      <span class="brand wordmark wm-depo">Depo</span>
+      <span class="brand wordmark wm-qwp">QWP</span>
+      <span class="brand"><img src="__LOGO_mahle__" alt="Mahle"></span>
+      <span class="brand"><img src="__LOGO_valeo__" alt="Valeo"></span>
+      <span class="brand wordmark wm-mann">Mann-Filter</span>
+      <span class="brand wordmark wm-febi">febi bilstein</span>
+      <span class="brand"><img src="__LOGO_ngk__" alt="NGK"></span>
     </div>
     <div class="marquee-track" aria-hidden="true">
-      <span class="brand">LUK</span><span class="brand">Sachs</span><span class="brand">Hella</span><span class="brand">Depo</span><span class="brand">QWP</span><span class="brand">Mahle</span><span class="brand">Valeo</span><span class="brand">Mann-Filter</span><span class="brand">Febi</span><span class="brand">NGK</span>
+      <span class="brand"><img src="__LOGO_luk__" alt=""></span>
+      <span class="brand"><img src="__LOGO_sachs__" alt=""></span>
+      <span class="brand"><img src="__LOGO_hella__" alt=""></span>
+      <span class="brand wordmark wm-depo">Depo</span>
+      <span class="brand wordmark wm-qwp">QWP</span>
+      <span class="brand"><img src="__LOGO_mahle__" alt=""></span>
+      <span class="brand"><img src="__LOGO_valeo__" alt=""></span>
+      <span class="brand wordmark wm-mann">Mann-Filter</span>
+      <span class="brand wordmark wm-febi">febi bilstein</span>
+      <span class="brand"><img src="__LOGO_ngk__" alt=""></span>
     </div>
   </div>
 </div>
@@ -408,6 +457,33 @@
   </div>
 </section>
 
+<section id="prava">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Kupujte bez brige</span>
+      <h2>Prava <em>potrošača</em></h2>
+    </div>
+    <div class="prava-grid rv">
+      <div class="pravo">
+        <h3>Saobraznost i reklamacije</h3>
+        <p>Za svu robu odgovaramo za saobraznost u zakonskom roku od <b>2 godine</b> od dana kupovine.</p>
+        <p>Reklamaciju možete izjaviti telefonom na <b>062 973 6677</b>, e-mailom na <b>info@diax.rs</b> ili u našem objektu, uz račun ili drugi dokaz o kupovini. Na reklamaciju odgovaramo <b>u roku od 8 dana</b>, a rešavamo je najkasnije u roku od <b>15 dana</b> od podnošenja.</p>
+      </div>
+      <div class="pravo">
+        <h3>Odustanak od kupovine</h3>
+        <p>Kod kupovine na daljinu (poručivanje telefonom ili putem interneta) imate pravo da odustanete od ugovora <b>u roku od 14 dana</b> od prijema robe, bez navođenja razloga.</p>
+        <p>Dovoljno je da nas obavestite izjavom o odustanku, a novac vam vraćamo bez odlaganja po prijemu vraćene robe.</p>
+      </div>
+      <div class="pravo">
+        <h3>Rešavanje sporova</h3>
+        <p>Ako niste zadovoljni ishodom reklamacije, potrošački spor može se rešiti i <b>vansudskim putem</b> — pred telima sa liste Ministarstva nadležnog za trgovinu, bez troškova postupka za potrošača.</p>
+        <p>Naravno, uvek smo tu da svaki problem prvo rešimo direktno i u dobroj volji.</p>
+      </div>
+    </div>
+    <p class="prava-note rv">Prava potrošača ostvaruju se u skladu sa Zakonom o zaštiti potrošača Republike Srbije („Sl. glasnik RS", br. 88/2021). Više informacija: <a href="https://zastitapotrosaca.gov.rs" rel="noopener">zastitapotrosaca.gov.rs</a></p>
+  </div>
+</section>
+
 <footer>
   <div class="wrap foot-badges">
     <div class="fb"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFC400" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 7h14l-1.5 12h-11z"/><path d="M9 10V6a3 3 0 016 0v4"/></svg><div><b>Najveća ponuda</b><span>Širok asortiman za sva vozila</span></div></div>
@@ -418,7 +494,7 @@
     <div class="fb"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFC400" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"/></svg><div><b>Call centar</b><span>Tu smo za sva vaša pitanja</span></div></div>
   </div>
   <div class="wrap foot-bottom">
-    <span>© 2026 DIAX Auto Delovi · Sva prava zadržana</span>
+    <span>© 2026 DIAX Auto Delovi · Sva prava zadržana · <a href="#prava" style="text-decoration:underline">Prava potrošača</a></span>
     <span>diax.rs · info@diax.rs · 062 973 6677</span>
   </div>
 </footer>

@@ -8,9 +8,11 @@ CATS = ["gume","kocioni","filteri","ulja","motor","elektrika","klima","izduvni",
         "hladjenje","kaisevi","svecice","brisaci","lezajevi","spone","servo",
         "zaptivke","enterijer"]
 
-def b64(path):
+LOGOS = ["luk","sachs","hella","mahle","valeo","ngk"]
+
+def b64(path, mime='image/jpeg'):
     with open(path,'rb') as f:
-        return 'data:image/jpeg;base64,'+base64.b64encode(f.read()).decode()
+        return f'data:{mime};base64,'+base64.b64encode(f.read()).decode()
 
 html = open('template.html').read()
 html = html.replace('__HERO__', b64('assets/hero.jpg'))
@@ -22,6 +24,12 @@ for c in CATS:
         html = html.replace(f'__CAT_{c}__', b64(p))
     else:
         missing.append(c)
+for l in LOGOS:
+    p = f'assets/logos/{l}.svg'
+    if os.path.exists(p):
+        html = html.replace(f'__LOGO_{l}__', b64(p, 'image/svg+xml'))
+    else:
+        missing.append('logo:'+l)
 open('index.html','w').write(html)
 open('diax-preview.html','w').write(html)
 print('OK', len(html), 'bytes; missing:', missing or 'none')
