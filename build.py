@@ -8,7 +8,7 @@ CATS = ["gume","kocioni","filteri","ulja","motor","elektrika","klima","izduvni",
         "hladjenje","kaisevi","svecice","brisaci","lezajevi","spone","servo",
         "zaptivke","enterijer"]
 
-LOGOS = ["luk","sachs","hella","mahle","valeo","ngk"]
+LOGOS = ["luk","sachs","mahle","valeo","bosch","skf","brembo","trw","osram","continental"]
 
 def b64(path, mime='image/jpeg'):
     with open(path,'rb') as f:

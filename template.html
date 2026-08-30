@@ -157,7 +157,7 @@
     max-height:0;overflow:hidden;opacity:0;
     transition:max-height .5s ease,opacity .4s ease;
   }
-  #cats-extra.open{max-height:900px;opacity:1}
+  #cats-extra.open{max-height:2600px;opacity:1}
   .cat-toggle-row{display:flex;justify-content:center;margin-top:36px}
   @media(max-width:960px){.cat-grid,#cats-extra{grid-template-columns:repeat(3,1fr)}}
   @media(max-width:640px){.cat-grid,#cats-extra{grid-template-columns:repeat(2,1fr)}}
@@ -168,17 +168,22 @@
   .marquee{display:flex;overflow:hidden;user-select:none;
     -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
     mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);}
-  .marquee-track{display:flex;flex:none;align-items:center;gap:72px;padding-right:72px;animation:scroll 30s linear infinite}
+  .marquee-track{display:flex;flex:none;align-items:center;gap:64px;padding-right:64px;animation:scroll 60s linear infinite}
   .marquee:hover .marquee-track{animation-play-state:paused}
   @keyframes scroll{to{transform:translateX(-100%)}}
   .brand{display:flex;align-items:center;white-space:nowrap}
-  .brand img{height:32px;width:auto;display:block}
-  .brand.b-tall img{height:42px}
+  .brand img{height:30px;width:auto;max-width:170px;display:block}
   .wordmark{font-family:var(--disp);font-weight:700;text-transform:uppercase;font-size:24px;letter-spacing:.06em;line-height:1}
   .wm-mann{background:#FFED00;color:#00693C;padding:5px 10px;letter-spacing:.02em}
   .wm-febi{color:#E2001A;text-transform:lowercase;font-size:27px}
   .wm-depo{color:#00427A;font-style:italic}
   .wm-qwp{color:#15181C;border:3px solid #15181C;padding:3px 9px}
+  .wm-hella{color:#1A1A1A;letter-spacing:.16em}
+  .wm-ngk{color:#C8102E;letter-spacing:.1em}
+  .wm-castrol{color:#009343;font-style:italic}
+  .wm-delphi{color:#0097A9}
+  .wm-gates{color:#E4002B;letter-spacing:.08em}
+  .wm-kyb{color:#00447C;font-style:italic;letter-spacing:.08em}
   @media(prefers-reduced-motion:reduce){
     .marquee-track{animation:none}
     .marquee{flex-wrap:wrap;justify-content:center;-webkit-mask-image:none;mask-image:none}
@@ -360,28 +365,48 @@
   </div>
   <div class="marquee" aria-label="Proizvođači u ponudi">
     <div class="marquee-track">
+      <span class="brand"><img src="__LOGO_bosch__" alt="Bosch"></span>
       <span class="brand"><img src="__LOGO_luk__" alt="LuK"></span>
       <span class="brand"><img src="__LOGO_sachs__" alt="Sachs"></span>
-      <span class="brand"><img src="__LOGO_hella__" alt="Hella"></span>
+      <span class="brand wordmark wm-hella">Hella</span>
+      <span class="brand"><img src="__LOGO_valeo__" alt="Valeo"></span>
+      <span class="brand"><img src="__LOGO_mahle__" alt="Mahle"></span>
+      <span class="brand wordmark wm-mann">Mann-Filter</span>
+      <span class="brand wordmark wm-ngk">NGK</span>
+      <span class="brand"><img src="__LOGO_brembo__" alt="Brembo"></span>
+      <span class="brand"><img src="__LOGO_skf__" alt="SKF"></span>
+      <span class="brand"><img src="__LOGO_trw__" alt="TRW"></span>
+      <span class="brand"><img src="__LOGO_continental__" alt="Continental"></span>
+      <span class="brand"><img src="__LOGO_osram__" alt="Osram"></span>
+      <span class="brand wordmark wm-febi">febi bilstein</span>
+      <span class="brand wordmark wm-castrol">Castrol</span>
+      <span class="brand wordmark wm-delphi">Delphi</span>
+      <span class="brand wordmark wm-gates">Gates</span>
+      <span class="brand wordmark wm-kyb">KYB</span>
       <span class="brand wordmark wm-depo">Depo</span>
       <span class="brand wordmark wm-qwp">QWP</span>
-      <span class="brand"><img src="__LOGO_mahle__" alt="Mahle"></span>
-      <span class="brand"><img src="__LOGO_valeo__" alt="Valeo"></span>
-      <span class="brand wordmark wm-mann">Mann-Filter</span>
-      <span class="brand wordmark wm-febi">febi bilstein</span>
-      <span class="brand"><img src="__LOGO_ngk__" alt="NGK"></span>
     </div>
     <div class="marquee-track" aria-hidden="true">
+      <span class="brand"><img src="__LOGO_bosch__" alt=""></span>
       <span class="brand"><img src="__LOGO_luk__" alt=""></span>
       <span class="brand"><img src="__LOGO_sachs__" alt=""></span>
-      <span class="brand"><img src="__LOGO_hella__" alt=""></span>
+      <span class="brand wordmark wm-hella">Hella</span>
+      <span class="brand"><img src="__LOGO_valeo__" alt=""></span>
+      <span class="brand"><img src="__LOGO_mahle__" alt=""></span>
+      <span class="brand wordmark wm-mann">Mann-Filter</span>
+      <span class="brand wordmark wm-ngk">NGK</span>
+      <span class="brand"><img src="__LOGO_brembo__" alt=""></span>
+      <span class="brand"><img src="__LOGO_skf__" alt=""></span>
+      <span class="brand"><img src="__LOGO_trw__" alt=""></span>
+      <span class="brand"><img src="__LOGO_continental__" alt=""></span>
+      <span class="brand"><img src="__LOGO_osram__" alt=""></span>
+      <span class="brand wordmark wm-febi">febi bilstein</span>
+      <span class="brand wordmark wm-castrol">Castrol</span>
+      <span class="brand wordmark wm-delphi">Delphi</span>
+      <span class="brand wordmark wm-gates">Gates</span>
+      <span class="brand wordmark wm-kyb">KYB</span>
       <span class="brand wordmark wm-depo">Depo</span>
       <span class="brand wordmark wm-qwp">QWP</span>
-      <span class="brand"><img src="__LOGO_mahle__" alt=""></span>
-      <span class="brand"><img src="__LOGO_valeo__" alt=""></span>
-      <span class="brand wordmark wm-mann">Mann-Filter</span>
-      <span class="brand wordmark wm-febi">febi bilstein</span>
-      <span class="brand"><img src="__LOGO_ngk__" alt=""></span>
     </div>
   </div>
 </div>
