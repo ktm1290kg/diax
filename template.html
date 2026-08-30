@@ -107,6 +107,7 @@
 
   /* ── Sekcije ────────────────────────────── */
   section{padding:84px 0}
+  section[id],#pocetna{scroll-margin-top:70px}
   .sec-head{margin-bottom:44px}
   .sec-head h2{font-size:clamp(30px,4vw,44px);font-weight:700;margin-top:12px}
   .sec-head h2 em{font-style:normal;color:var(--accent)}
@@ -114,14 +115,12 @@
   /* ── O nama (zgrada u pozadini, tekst preko) ── */
   #o-nama{
     position:relative;overflow:hidden;padding:0;
-    background:#0E1116 url(__STORE__) no-repeat;
-    background-size:150% auto;
-    background-position:left 42%;
+    background:#0A0E15 url(__STOREWIDE__) no-repeat center 30%/cover;
     border-bottom:1px solid var(--line);
   }
   #o-nama::before{
     content:"";position:absolute;inset:0;
-    background:linear-gradient(to right,rgba(11,14,19,.95) 0%,rgba(11,14,19,.87) 38%,rgba(11,14,19,.28) 66%,rgba(11,14,19,.06) 100%);
+    background:linear-gradient(to right,rgba(8,11,17,.72) 0%,rgba(8,11,17,.45) 42%,rgba(8,11,17,0) 65%);
   }
   .about-inner{position:relative;display:flex;justify-content:flex-start;align-items:center;min-height:660px;padding-top:84px;padding-bottom:84px}
   .about-txt{max-width:600px}
@@ -134,9 +133,9 @@
   .badge svg{flex:none}
   .badge span{font-family:var(--disp);font-weight:600;text-transform:uppercase;letter-spacing:.1em;font-size:13.5px}
   @media(max-width:900px){
-    #o-nama{background-size:cover;background-position:47% top}
-    #o-nama::before{background:linear-gradient(180deg,rgba(11,14,19,.30) 0%,rgba(11,14,19,.55) 32%,rgba(11,14,19,.86) 55%,rgba(11,14,19,.94) 100%)}
-    .about-inner{min-height:0;padding-top:340px;padding-bottom:56px}
+    #o-nama{background-position:68% center}
+    #o-nama::before{background:linear-gradient(180deg,rgba(8,11,17,.25) 0%,rgba(8,11,17,.50) 30%,rgba(8,11,17,.84) 52%,rgba(8,11,17,.93) 100%)}
+    .about-inner{min-height:0;padding-top:320px;padding-bottom:56px}
   }
 
   /* ── Kategorije ─────────────────────────── */

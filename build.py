@@ -17,6 +17,7 @@ def b64(path, mime='image/jpeg'):
 html = open('template.html').read()
 html = html.replace('__HERO__', b64('assets/hero.jpg'))
 html = html.replace('__STORE__', b64('assets/store.jpg'))
+html = html.replace('__STOREWIDE__', b64('assets/store-wide.jpg'))
 missing = []
 for c in CATS:
     p = f'assets/cat-{c}.jpg'
