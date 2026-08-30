@@ -114,14 +114,16 @@
   /* ── O nama (zgrada u pozadini, tekst preko) ── */
   #o-nama{
     position:relative;overflow:hidden;padding:0;
-    background:#0E1116 url(__STORE__) no-repeat left 38%/cover;
+    background:#0E1116 url(__STORE__) no-repeat;
+    background-size:165% auto;
+    background-position:left 38%;
     border-bottom:1px solid var(--line);
   }
   #o-nama::before{
     content:"";position:absolute;inset:0;
-    background:linear-gradient(to left,rgba(11,14,19,.94) 0%,rgba(11,14,19,.86) 42%,rgba(11,14,19,.30) 76%,rgba(11,14,19,.08) 100%);
+    background:linear-gradient(to right,rgba(11,14,19,.95) 0%,rgba(11,14,19,.87) 38%,rgba(11,14,19,.28) 66%,rgba(11,14,19,.06) 100%);
   }
-  .about-inner{position:relative;display:flex;justify-content:flex-end;align-items:center;min-height:640px;padding-top:84px;padding-bottom:84px}
+  .about-inner{position:relative;display:flex;justify-content:flex-start;align-items:center;min-height:660px;padding-top:84px;padding-bottom:84px}
   .about-txt{max-width:600px}
   .about-txt h2{font-size:clamp(30px,4vw,44px);font-weight:700;margin:12px 0 20px;text-shadow:0 2px 20px rgba(0,0,0,.5)}
   .about-txt h2 em{font-style:normal;color:var(--accent)}
@@ -132,8 +134,8 @@
   .badge svg{flex:none}
   .badge span{font-family:var(--disp);font-weight:600;text-transform:uppercase;letter-spacing:.1em;font-size:13.5px}
   @media(max-width:900px){
-    #o-nama{background-position:28% center}
-    #o-nama::before{background:linear-gradient(180deg,rgba(11,14,19,.55) 0%,rgba(11,14,19,.82) 45%,rgba(11,14,19,.92) 100%)}
+    #o-nama{background-size:cover;background-position:47% top}
+    #o-nama::before{background:linear-gradient(180deg,rgba(11,14,19,.30) 0%,rgba(11,14,19,.55) 32%,rgba(11,14,19,.86) 55%,rgba(11,14,19,.94) 100%)}
     .about-inner{min-height:0;padding-top:340px;padding-bottom:56px}
   }
 
