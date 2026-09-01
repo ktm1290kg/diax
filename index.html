@@ -511,8 +511,11 @@
     const f=e.target, note=document.getElementById('form-note'), btn=f.querySelector('button[type=submit]');
     btn.disabled=true; note.textContent='Šaljemo poruku…';
     try{
+      const ctl=new AbortController();
+      setTimeout(()=>ctl.abort(),15000);
       const r=await fetch('https://formsubmit.co/ajax/'+CONTACT_MAIL,{
         method:'POST',
+        signal:ctl.signal,
         headers:{'Content-Type':'application/json','Accept':'application/json'},
         body:JSON.stringify({
           _subject:'Upit sa sajta — '+f.kategorija.value,
